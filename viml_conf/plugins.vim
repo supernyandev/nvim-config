@@ -161,11 +161,13 @@ let g:XkbSwitchEnabled = 1
 let g:neoformat_enabled_python = ['black', 'yapf']
 let g:neoformat_cpp_clangformat = {
       \ 'exe': 'clang-format',
-      \ 'args': ['--style="{IndentWidth: 4}"']
+      \ 'args': ['--style=file'],
+      \ 'stdin': 1
       \ }
 let g:neoformat_c_clangformat = {
-      \ 'exe': 'clang-format',
-      \ 'args': ['--style="{IndentWidth: 4}"']
+      \ 'exe': 'clang-format-17',
+      \ 'args': ['--style=file'],
+      \ 'stdin': 1
       \ }
 
 let g:neoformat_enabled_cpp = ['clangformat']
@@ -192,14 +194,14 @@ let g:vim_markdown_toc_autofit = 1
 
 """""""""""""""""""""""""markdown-preview settings"""""""""""""""""""
 " Only setting this for suitable platforms
-if g:is_win || g:is_mac
+"if g:is_win || g:is_mac
   " Do not close the preview tab when switching to other buffers
-  let g:mkdp_auto_close = 0
+let g:mkdp_auto_close = 0
 
   " Shortcuts to start and stop markdown previewing
-  nnoremap <silent> <M-m> :<C-U>MarkdownPreview<CR>
-  nnoremap <silent> <M-S-m> :<C-U>MarkdownPreviewStop<CR>
-endif
+nnoremap <silent> <M-m> :<C-U>MarkdownPreview<CR>
+nnoremap <silent> <M-S-m> :<C-U>MarkdownPreviewStop<CR>
+"endif
 
 """"""""""""""""""""""""vim-grammarous settings""""""""""""""""""""""""""""""
 if g:is_mac
